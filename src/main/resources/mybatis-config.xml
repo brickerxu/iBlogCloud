@@ -13,4 +13,8 @@
         <!-- 允许 JDBC 支持自动生成主键 -->
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
+
+    <typeAliases>
+        <typeAlias type="cc.bricker.iblog.entity.User" alias="User"/>
+    </typeAliases>
 </configuration>
