@@ -8,17 +8,9 @@
     <artifactId>iBlogCloud</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.5.RELEASE</version>
-    </parent>
-
     <properties>
-        <output.dir>${project.build.directory}/iBlogCloud</output.dir>
-        <resources.dir>${project.basedir}/src/main/resources</resources.dir>
-        <mybatis.springboot.version>2.1.2</mybatis.springboot.version>
-        <fastjson.version>1.2.68</fastjson.version>
+        <spring.cloud.version>Hoxton.SR5</spring.cloud.version>
+        <spring.boot.version>2.2.1.RELEASE</spring.boot.version>
     </properties>
 
     <build>
@@ -37,50 +29,19 @@
         </pluginManagement>
     </build>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <!--mysql驱动-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.springboot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter-test</artifactId>
-            <version>${mybatis.springboot.version}</version>
-        </dependency>
-    </dependencies>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <!-- default Spring profiles -->
-                <spring.profiles.active>dev</spring.profiles.active>
-            </properties>
-        </profile>
-        <profile>
-            <id>release</id>
-            <properties>
-                <!-- default Spring profiles -->
-                <spring.profiles.active>release</spring.profiles.active>
-            </properties>
-        </profile>
-    </profiles>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
